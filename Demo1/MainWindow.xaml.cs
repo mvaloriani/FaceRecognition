@@ -37,9 +37,20 @@ namespace Demo1
             mainViewModel.SelectImage();
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private async void Button_Click_Oxford(object sender, RoutedEventArgs e)
         {
+            mainViewModel.Oxford();
+        }
 
+
+        private async void Button_Click_Emgu(object sender, RoutedEventArgs e)
+        {
+            mainViewModel.Oxford();
+        }
+
+        private async void Button_Click_Betaface(object sender, RoutedEventArgs e)
+        {
+            mainViewModel.Oxford();
         }
     }
 }
