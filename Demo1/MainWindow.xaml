@@ -1,0 +1,34 @@
+﻿<Window x:Class="Demo1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow"
+        WindowState="Maximized">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="4*"/>
+        </Grid.RowDefinitions>
+        <Border Grid.Row="0"  Grid.Column="1" Margin="5" BorderBrush="#FF017D00" BorderThickness="3" >
+            <Image Source="{Binding ImageSourcePath}" Stretch="Uniform"/>
+        </Border>
+        <Button Content="Select Picture" Grid.Column="2" Click="Button_Click" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Button Content="Start OpenCV/Emgu" Grid.Row="1" Grid.Column="0" Click="Button_Click_1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Button Content="Start Betaface" Grid.Row="1" Grid.Column="1" Click="Button_Click_1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Button Content="Start Oxford" Grid.Row="1" Grid.Column="2" Click="Button_Click_1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <ScrollViewer Grid.Row="2" Grid.Column="0" Margin="5" HorizontalScrollBarVisibility="Disabled">
+            <TextBlock TextWrapping="Wrap" Text="{Binding EmguResult}"/>
+        </ScrollViewer>
+        <ScrollViewer Grid.Row="2" Grid.Column="1" Margin="5" HorizontalScrollBarVisibility="Disabled">
+            <TextBlock TextWrapping="Wrap" Text="{Binding BetafaceResult}"/>
+        </ScrollViewer>
+        <ScrollViewer Grid.Row="2" Grid.Column="2" Margin="5" HorizontalScrollBarVisibility="Disabled">
+            <TextBlock TextWrapping="Wrap" Text="{Binding OxfordResult}"/>
+        </ScrollViewer>
+    </Grid>
+</Window>
