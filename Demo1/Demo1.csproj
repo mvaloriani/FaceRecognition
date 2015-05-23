@@ -15,7 +15,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -34,6 +34,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Emgu.CV">
+      <HintPath>..\ExternalLib\x86\Emgu.CV.dll</HintPath>
+    </Reference>
+    <Reference Include="Emgu.CV.UI">
+      <HintPath>..\ExternalLib\x86\Emgu.CV.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Emgu.Util">
+      <HintPath>..\ExternalLib\x86\Emgu.Util.dll</HintPath>
+    </Reference>
     <Reference Include="GalaSoft.MvvmLight, Version=5.1.1.35049, Culture=neutral, PublicKeyToken=e7570ab207bcb616, processorArchitecture=MSIL">
       <HintPath>..\packages\MvvmLightLibs.5.1.1.0\lib\net45\GalaSoft.MvvmLight.dll</HintPath>
       <Private>True</Private>
@@ -122,6 +131,10 @@
     <ProjectReference Include="..\ClientLibrary\ClientLibrary.csproj">
       <Project>{25d58ba5-660f-407b-803c-22b4547c09dc}</Project>
       <Name>ClientLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FaceRecognitionEMGU\FaceRecognitionEMGU.csproj">
+      <Project>{596e65e6-bbef-4b4a-a6cb-0711ac703c99}</Project>
+      <Name>FaceRecognitionEMGU</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
