@@ -57,13 +57,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ExternalDLL\opencv_core249.dll">
+    <Content Include="opencv_core249.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="ExternalDLL\opencv_highgui249.dll">
+    <Content Include="opencv_highgui249.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="ExternalDLL\opencv_imgproc249.dll">
+    <Content Include="opencv_imgproc249.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
