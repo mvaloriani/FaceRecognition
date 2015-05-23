@@ -50,7 +50,7 @@ namespace Demo1
 
         private async void Button_Click_Betaface(object sender, RoutedEventArgs e)
         {
-            mainViewModel.Oxford();
+            mainViewModel.Betaface();
         }
     }
 }

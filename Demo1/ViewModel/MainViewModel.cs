@@ -11,6 +11,8 @@ using System.Drawing;
 using System.Linq;
 using FaceRecognitionEMGU;
 
+using System.Xml;
+using System.Text;
 
 namespace Demo1.ViewModel
 {
@@ -59,22 +61,7 @@ namespace Demo1.ViewModel
             }
         }
 
-        public const string BetafaceResultPropertyName = "BetafaceResult";
-        private String _betafaceResult;
-        public String BetafaceResult
-        {
-            get { return _betafaceResult; }
-            set
-            {
-                if (_betafaceResult == value)
-                { return; }
 
-                _betafaceResult = value;
-                RaisePropertyChanged(BetafaceResultPropertyName);
-            }
-        }
-
-      
         /// <summary>
         /// Initializes a new instance of the MainViewModel class.
         /// </summary>
@@ -220,6 +207,63 @@ namespace Demo1.ViewModel
         #endregion
 
 
+        #region Betaface
+
+        public const string BetafaceResultPropertyName = "BetafaceResult";
+        private String _betafaceResult;
+        public String BetafaceResult
+        {
+            get { return _betafaceResult; }
+            set
+            {
+                if (_betafaceResult == value)
+                { return; }
+
+                _betafaceResult = value;
+                RaisePropertyChanged(BetafaceResultPropertyName);
+            }
+        }
+
+
+
+        internal void Betaface()
+        {
+
+            if (ImageSourcePath != null)
+            {
+                BetafaceResult = "Detecting...";
+
+                BetafaceServiceConnection conn = new BetafaceServiceConnection();
+
+                Task betafaceTask = new Task(
+                        () =>
+                        {
+                            Image userImage = Image.FromFile(ImageSourcePath);
+
+                            BetafaceResult = FormatXml(conn.GetUserInfo(userImage));
+                        });
+
+                betafaceTask.Start();
+            }
+            else
+            {
+                BetafaceResult = "No user image available";
+            }
+        }
+
+        public string FormatXml(string xml)
+        {
+            var doc = new XmlDocument();
+            doc.LoadXml(xml);
+            var stringBuilder = new StringBuilder();
+            var xmlWriterSettings = new XmlWriterSettings { Indent = true, OmitXmlDeclaration = true };
+            doc.Save(XmlWriter.Create(stringBuilder, xmlWriterSettings));
+            return stringBuilder.ToString();
+        }
+
+
+
+        #endregion
 
 
         internal void Initialize()

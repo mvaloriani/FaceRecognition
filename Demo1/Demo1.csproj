@@ -83,6 +83,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="BetafaceServiceConnection.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Page Include="MainWindow.xaml">
@@ -127,7 +128,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\Desktop\FaceAPI-Samples-CSharp\ClientLibrary\ClientLibrary.csproj">
+    <ProjectReference Include="..\ClientLibrary\ClientLibrary.csproj">
       <Project>{25d58ba5-660f-407b-803c-22b4547c09dc}</Project>
       <Name>ClientLibrary</Name>
     </ProjectReference>
