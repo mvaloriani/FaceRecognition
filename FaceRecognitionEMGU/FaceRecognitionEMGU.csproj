@@ -153,7 +153,9 @@
     <Content Include="opencv_bgsegm300.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="opencv_calib3d300.dll" />
+    <Content Include="opencv_calib3d300.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="opencv_core300.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
