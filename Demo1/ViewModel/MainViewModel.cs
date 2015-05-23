@@ -9,6 +9,8 @@ using System.Windows;
 using System.IO;
 using System.Drawing;
 using System.Linq;
+using FaceRecognitionEMGU;
+
 
 namespace Demo1.ViewModel
 {
@@ -80,6 +82,19 @@ namespace Demo1.ViewModel
         {
             
         }
+
+
+        #region  Emgu
+
+        EmguFaceDetector emguDetector;
+
+        internal async void Emgu()
+        {
+            emguDetector.detect(new Bitmap(ImageSourcePath));
+        }
+
+
+        #endregion
 
 
         #region Oxford
@@ -209,7 +224,7 @@ namespace Demo1.ViewModel
 
         internal void Initialize()
         {
-            
+            EmguFaceDetector emguDetector = new EmguFaceDetector(); 
         }
 
         internal void SelectImage()
