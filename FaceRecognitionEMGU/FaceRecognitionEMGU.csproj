@@ -34,6 +34,9 @@
     <Reference Include="Emgu.CV">
       <HintPath>..\ExternalLib\x86\Emgu.CV.dll</HintPath>
     </Reference>
+    <Reference Include="Emgu.CV.Contrib">
+      <HintPath>..\ExternalLib\x86\Emgu.CV.Contrib.dll</HintPath>
+    </Reference>
     <Reference Include="Emgu.CV.UI">
       <HintPath>..\ExternalLib\x86\Emgu.CV.UI.dll</HintPath>
     </Reference>
@@ -135,13 +138,13 @@
     <Content Include="cropped_image\female\emma_watson\emma_watson_16.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="opencv_core249.dll">
+    <Content Include="opencv_core300.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="opencv_highgui249.dll">
+    <Content Include="opencv_highgui300.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="opencv_imgproc249.dll">
+    <Content Include="opencv_imgproc300.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Resource Include="cropped_image\male\zhang_yishan\zhang_yishan_09.jpg">
