@@ -9,6 +9,8 @@ using System.Windows;
 using System.IO;
 using System.Drawing;
 using System.Linq;
+using System.Xml;
+using System.Text;
 
 namespace Demo1.ViewModel
 {
@@ -54,21 +56,6 @@ namespace Demo1.ViewModel
 
                 _emguResult = value;
                 RaisePropertyChanged(EmguResultPropertyName);
-            }
-        }
-
-        public const string BetafaceResultPropertyName = "BetafaceResult";
-        private String _betafaceResult;
-        public String BetafaceResult
-        {
-            get { return _betafaceResult; }
-            set
-            {
-                if (_betafaceResult == value)
-                { return; }
-
-                _betafaceResult = value;
-                RaisePropertyChanged(BetafaceResultPropertyName);
             }
         }
 
@@ -205,6 +192,63 @@ namespace Demo1.ViewModel
         #endregion
 
 
+        #region Betaface
+
+        public const string BetafaceResultPropertyName = "BetafaceResult";
+        private String _betafaceResult;
+        public String BetafaceResult
+        {
+            get { return _betafaceResult; }
+            set
+            {
+                if (_betafaceResult == value)
+                { return; }
+
+                _betafaceResult = value;
+                RaisePropertyChanged(BetafaceResultPropertyName);
+            }
+        }
+
+
+
+        internal void Betaface()
+        {
+
+            if (ImageSourcePath != null)
+            {
+                BetafaceResult = "Detecting...";
+
+                BetafaceServiceConnection conn = new BetafaceServiceConnection();
+
+                Task betafaceTask = new Task(
+                        () =>
+                        {
+                            Image userImage = Image.FromFile(ImageSourcePath);
+
+                            BetafaceResult = FormatXml(conn.GetUserInfo(userImage));
+                        });
+
+                betafaceTask.Start();
+            }
+            else
+            {
+                BetafaceResult = "No user image available";
+            }
+        }
+
+        public string FormatXml(string xml)
+        {
+            var doc = new XmlDocument();
+            doc.LoadXml(xml);
+            var stringBuilder = new StringBuilder();
+            var xmlWriterSettings = new XmlWriterSettings { Indent = true, OmitXmlDeclaration = true };
+            doc.Save(XmlWriter.Create(stringBuilder, xmlWriterSettings));
+            return stringBuilder.ToString();
+        }
+
+
+
+        #endregion
 
 
         internal void Initialize()
