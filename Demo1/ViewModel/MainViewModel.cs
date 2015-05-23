@@ -116,7 +116,7 @@ namespace Demo1.ViewModel
 
 
 
-        private readonly IFaceServiceClient faceServiceClient = new FaceServiceClient("6fbbf42caeb84e418669e0a851855f7b"); //PrimaryKey
+        private readonly IFaceServiceClient faceServiceClient = new FaceServiceClient("eb03b136ac4247e99e5f9e8587f3580c"); //PrimaryKey
 
         internal async void Oxford()
         {
@@ -195,7 +195,7 @@ namespace Demo1.ViewModel
                     return faces.ToArray();
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 return new Face[0];
             }
