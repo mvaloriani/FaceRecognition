@@ -43,19 +43,20 @@ namespace FaceRecognitionEMGU
          public int detect(System.Drawing.Bitmap img)
          {
             // Normalizing it to grayscale
-             Image<Bgr, byte> normalizedMasterImage = new Image<Bgr, byte>(img);
+             Image<Gray, byte> normalizedMasterImage = new Image<Gray, byte>(img);
              
              return detect (normalizedMasterImage);
          }
 
-        public int detect(Image<Bgr, byte> img)
+         public int detect(Image<Gray, byte> img)
         {
             if (img == null) return -1;
 
             if (img.Height != 200 || img.Width != 200)
                 img = img.Resize(200, 200, Emgu.CV.CvEnum.Inter.Cubic);
 
-            return model.Predict(img).Label;
+            var res = model.Predict(img);
+            return res.Label;
         }
 
 
@@ -77,8 +78,8 @@ namespace FaceRecognitionEMGU
 
         private void prepareTrainedData()
         {
-            //string file = AppDomain.CurrentDomain.BaseDirectory + CROPPED_IMAGE_DIR + "\\" + CROPPED_IMAGE_FILE;
-           string file = "C:\\temp\\" + CROPPED_IMAGE_DIR + "\\" + CROPPED_IMAGE_FILE;
+           string file = AppDomain.CurrentDomain.BaseDirectory + CROPPED_IMAGE_DIR + "\\" + CROPPED_IMAGE_FILE;
+           
             if (!File.Exists(file))
             {
                 string errMsg = "No valid input file was given, please check the given filename.";
@@ -101,8 +102,8 @@ namespace FaceRecognitionEMGU
 
                         if (path != null && label != null)
                         {
-                            path = "C:\\temp\\" + CROPPED_IMAGE_DIR + "\\" + path + ".jpg";
-                        //    path = AppDomain.CurrentDomain.BaseDirectory + CROPPED_IMAGE_DIR + "\\" + path + ".jpg";
+                            
+                            path = AppDomain.CurrentDomain.BaseDirectory + CROPPED_IMAGE_DIR + "\\" + path + ".jpg";
 
                             if (File.Exists(path))
                             {

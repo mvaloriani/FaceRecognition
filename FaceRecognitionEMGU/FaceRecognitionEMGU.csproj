@@ -52,6 +52,9 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="WindowsBase" />
+    <Reference Include="ZedGraph">
+      <HintPath>..\ExternalLib\x86\ZedGraph.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EmguFaceDetector.cs" />
@@ -138,675 +141,753 @@
     <Content Include="cropped_image\female\emma_watson\emma_watson_16.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="cvextern.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="msvcp120.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="msvcr120.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="opencv_bgsegm300.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="opencv_calib3d300.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="opencv_core300.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="opencv_face300.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="opencv_features2d300.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="opencv_ffmpeg300.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="opencv_flann300.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="opencv_highgui300.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="opencv_imgcodecs300.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="opencv_imgproc300.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Resource Include="cropped_image\male\zhang_yishan\zhang_yishan_09.jpg">
+    <Content Include="opencv_latentsvm300.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\zhang_yishan\zhang_yishan_08.jpg">
+    </Content>
+    <Content Include="opencv_ml300.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\zhang_yishan\zhang_yishan_07.jpg">
+    </Content>
+    <Content Include="opencv_objdetect300.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\zhang_yishan\zhang_yishan_06.jpg">
+    </Content>
+    <Content Include="opencv_optflow300.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\zhang_yishan\zhang_yishan_04.jpg">
+    </Content>
+    <Content Include="opencv_photo300.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\zhang_yishan\zhang_yishan_03.jpg">
+    </Content>
+    <Content Include="opencv_shape300.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\zhang_yishan\zhang_yishan_02.jpg">
+    </Content>
+    <Content Include="opencv_stitching300.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\zhang_yishan\zhang_yishan_01.jpg">
+    </Content>
+    <Content Include="opencv_superres300.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\tom_cruise\tom_cruise_12.jpg">
+    </Content>
+    <Content Include="opencv_text300.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\tom_cruise\tom_cruise_11.jpg">
+    </Content>
+    <Content Include="opencv_video300.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\tom_cruise\tom_cruise_10.jpg">
+    </Content>
+    <Content Include="opencv_videoio300.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\tom_cruise\tom_cruise_09.jpg">
+    </Content>
+    <Content Include="opencv_videostab300.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\tom_cruise\tom_cruise_08.jpg">
+    </Content>
+    <Content Include="opencv_xfeatures2d300.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\tom_cruise\tom_cruise_07.jpg">
+    </Content>
+    <Content Include="opencv_ximgproc300.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\tom_cruise\tom_cruise_06.jpg">
+    </Content>
+    <Content Include="opencv_xobjdetect300.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\tom_cruise\tom_cruise_05.jpg">
+    </Content>
+    <Content Include="opencv_xphoto300.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\tom_cruise\tom_cruise_04.jpg">
+    </Content>
+    <Content Include="cropped_image\male\zhang_yishan\zhang_yishan_09.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\tom_cruise\tom_cruise_03.jpg">
+    </Content>
+    <Content Include="cropped_image\male\zhang_yishan\zhang_yishan_08.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\tom_cruise\tom_cruise_02.jpg">
+    </Content>
+    <Content Include="cropped_image\male\zhang_yishan\zhang_yishan_07.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\tom_cruise\tom_cruise_01.jpg">
+    </Content>
+    <Content Include="cropped_image\male\zhang_yishan\zhang_yishan_06.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\patrick_stewart\patrick_stewart_10.jpg">
+    </Content>
+    <Content Include="cropped_image\male\zhang_yishan\zhang_yishan_04.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\patrick_stewart\patrick_stewart_09.jpg">
+    </Content>
+    <Content Include="cropped_image\male\zhang_yishan\zhang_yishan_03.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\patrick_stewart\patrick_stewart_08.jpg">
+    </Content>
+    <Content Include="cropped_image\male\zhang_yishan\zhang_yishan_02.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\patrick_stewart\patrick_stewart_07.jpg">
+    </Content>
+    <Content Include="cropped_image\male\zhang_yishan\zhang_yishan_01.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\patrick_stewart\patrick_stewart_05.jpg">
+    </Content>
+    <Content Include="cropped_image\male\tom_cruise\tom_cruise_12.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\patrick_stewart\patrick_stewart_04.jpg">
+    </Content>
+    <Content Include="cropped_image\male\tom_cruise\tom_cruise_11.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\patrick_stewart\patrick_stewart_03.jpg">
+    </Content>
+    <Content Include="cropped_image\male\tom_cruise\tom_cruise_10.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\patrick_stewart\patrick_stewart_02.jpg">
+    </Content>
+    <Content Include="cropped_image\male\tom_cruise\tom_cruise_09.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\lin_feng\lin_feng_09.jpg">
+    </Content>
+    <Content Include="cropped_image\male\tom_cruise\tom_cruise_08.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\lin_feng\lin_feng_08.jpg">
+    </Content>
+    <Content Include="cropped_image\male\tom_cruise\tom_cruise_07.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\lin_feng\lin_feng_07.jpg">
+    </Content>
+    <Content Include="cropped_image\male\tom_cruise\tom_cruise_06.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\lin_feng\lin_feng_06.jpg">
+    </Content>
+    <Content Include="cropped_image\male\tom_cruise\tom_cruise_05.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\lin_feng\lin_feng_04.jpg">
+    </Content>
+    <Content Include="cropped_image\male\tom_cruise\tom_cruise_04.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\lin_feng\lin_feng_03.jpg">
+    </Content>
+    <Content Include="cropped_image\male\tom_cruise\tom_cruise_03.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\lin_feng\lin_feng_02.jpg">
+    </Content>
+    <Content Include="cropped_image\male\tom_cruise\tom_cruise_02.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\lin_feng\lin_feng_01.jpg">
+    </Content>
+    <Content Include="cropped_image\male\tom_cruise\tom_cruise_01.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\keanu_reeves\keanu_reeves_13.jpg">
+    </Content>
+    <Content Include="cropped_image\male\patrick_stewart\patrick_stewart_10.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\keanu_reeves\keanu_reeves_12.jpg">
+    </Content>
+    <Content Include="cropped_image\male\patrick_stewart\patrick_stewart_09.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\keanu_reeves\keanu_reeves_11.jpg">
+    </Content>
+    <Content Include="cropped_image\male\patrick_stewart\patrick_stewart_08.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\keanu_reeves\keanu_reeves_10.jpg">
+    </Content>
+    <Content Include="cropped_image\male\patrick_stewart\patrick_stewart_07.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\keanu_reeves\keanu_reeves_09.jpg">
+    </Content>
+    <Content Include="cropped_image\male\patrick_stewart\patrick_stewart_05.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\keanu_reeves\keanu_reeves_08.jpg">
+    </Content>
+    <Content Include="cropped_image\male\patrick_stewart\patrick_stewart_04.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\keanu_reeves\keanu_reeves_07.jpg">
+    </Content>
+    <Content Include="cropped_image\male\patrick_stewart\patrick_stewart_03.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\keanu_reeves\keanu_reeves_06.jpg">
+    </Content>
+    <Content Include="cropped_image\male\patrick_stewart\patrick_stewart_02.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\keanu_reeves\keanu_reeves_05.jpg">
+    </Content>
+    <Content Include="cropped_image\male\lin_feng\lin_feng_09.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\keanu_reeves\keanu_reeves_04.jpg">
+    </Content>
+    <Content Include="cropped_image\male\lin_feng\lin_feng_08.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\keanu_reeves\keanu_reeves_03.jpg">
+    </Content>
+    <Content Include="cropped_image\male\lin_feng\lin_feng_07.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\keanu_reeves\keanu_reeves_01.jpg">
+    </Content>
+    <Content Include="cropped_image\male\lin_feng\lin_feng_06.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\justin_timberlake\justin_timberlake_11.jpg">
+    </Content>
+    <Content Include="cropped_image\male\lin_feng\lin_feng_04.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\justin_timberlake\justin_timberlake_10.jpg">
+    </Content>
+    <Content Include="cropped_image\male\lin_feng\lin_feng_03.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\justin_timberlake\justin_timberlake_09.jpg">
+    </Content>
+    <Content Include="cropped_image\male\lin_feng\lin_feng_02.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\justin_timberlake\justin_timberlake_08.jpg">
+    </Content>
+    <Content Include="cropped_image\male\lin_feng\lin_feng_01.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\justin_timberlake\justin_timberlake_07.jpg">
+    </Content>
+    <Content Include="cropped_image\male\keanu_reeves\keanu_reeves_13.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\justin_timberlake\justin_timberlake_06.jpg">
+    </Content>
+    <Content Include="cropped_image\male\keanu_reeves\keanu_reeves_12.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\justin_timberlake\justin_timberlake_05.jpg">
+    </Content>
+    <Content Include="cropped_image\male\keanu_reeves\keanu_reeves_11.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\justin_timberlake\justin_timberlake_04.jpg">
+    </Content>
+    <Content Include="cropped_image\male\keanu_reeves\keanu_reeves_10.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\justin_timberlake\justin_timberlake_03.jpg">
+    </Content>
+    <Content Include="cropped_image\male\keanu_reeves\keanu_reeves_09.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\justin_timberlake\justin_timberlake_02.jpg">
+    </Content>
+    <Content Include="cropped_image\male\keanu_reeves\keanu_reeves_08.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\justin_timberlake\justin_timberlake_01.jpg">
+    </Content>
+    <Content Include="cropped_image\male\keanu_reeves\keanu_reeves_07.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\johnny_depp\johnny_depp_11.jpg">
+    </Content>
+    <Content Include="cropped_image\male\keanu_reeves\keanu_reeves_06.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\johnny_depp\johnny_depp_10.jpg">
+    </Content>
+    <Content Include="cropped_image\male\keanu_reeves\keanu_reeves_05.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\johnny_depp\johnny_depp_09.jpg">
+    </Content>
+    <Content Include="cropped_image\male\keanu_reeves\keanu_reeves_04.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\johnny_depp\johnny_depp_07.jpg">
+    </Content>
+    <Content Include="cropped_image\male\keanu_reeves\keanu_reeves_03.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\johnny_depp\johnny_depp_06.jpg">
+    </Content>
+    <Content Include="cropped_image\male\keanu_reeves\keanu_reeves_01.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\johnny_depp\johnny_depp_05.jpg">
+    </Content>
+    <Content Include="cropped_image\male\justin_timberlake\justin_timberlake_11.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\johnny_depp\johnny_depp_04.jpg">
+    </Content>
+    <Content Include="cropped_image\male\justin_timberlake\justin_timberlake_10.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\johnny_depp\johnny_depp_03.jpg">
+    </Content>
+    <Content Include="cropped_image\male\justin_timberlake\justin_timberlake_09.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\johnny_depp\johnny_depp_02.jpg">
+    </Content>
+    <Content Include="cropped_image\male\justin_timberlake\justin_timberlake_08.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\johnny_depp\johnny_depp_01.jpg">
+    </Content>
+    <Content Include="cropped_image\male\justin_timberlake\justin_timberlake_07.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\george_clooney\george_clooney_11.jpg">
+    </Content>
+    <Content Include="cropped_image\male\justin_timberlake\justin_timberlake_06.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\george_clooney\george_clooney_10.jpg">
+    </Content>
+    <Content Include="cropped_image\male\justin_timberlake\justin_timberlake_05.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\george_clooney\george_clooney_09.jpg">
+    </Content>
+    <Content Include="cropped_image\male\justin_timberlake\justin_timberlake_04.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\george_clooney\george_clooney_08.jpg">
+    </Content>
+    <Content Include="cropped_image\male\justin_timberlake\justin_timberlake_03.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\george_clooney\george_clooney_07.jpg">
+    </Content>
+    <Content Include="cropped_image\male\justin_timberlake\justin_timberlake_02.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\george_clooney\george_clooney_06.jpg">
+    </Content>
+    <Content Include="cropped_image\male\justin_timberlake\justin_timberlake_01.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\george_clooney\george_clooney_05.jpg">
+    </Content>
+    <Content Include="cropped_image\male\johnny_depp\johnny_depp_11.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\george_clooney\george_clooney_04.jpg">
+    </Content>
+    <Content Include="cropped_image\male\johnny_depp\johnny_depp_10.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\george_clooney\george_clooney_03.jpg">
+    </Content>
+    <Content Include="cropped_image\male\johnny_depp\johnny_depp_09.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\george_clooney\george_clooney_02.jpg">
+    </Content>
+    <Content Include="cropped_image\male\johnny_depp\johnny_depp_07.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\george_clooney\george_clooney_01.jpg">
+    </Content>
+    <Content Include="cropped_image\male\johnny_depp\johnny_depp_06.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\daniel_radcliffe\daniel_radcliffe_11.jpg">
+    </Content>
+    <Content Include="cropped_image\male\johnny_depp\johnny_depp_05.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\daniel_radcliffe\daniel_radcliffe_10.jpg">
+    </Content>
+    <Content Include="cropped_image\male\johnny_depp\johnny_depp_04.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\daniel_radcliffe\daniel_radcliffe_09.jpg">
+    </Content>
+    <Content Include="cropped_image\male\johnny_depp\johnny_depp_03.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\daniel_radcliffe\daniel_radcliffe_08.jpg">
+    </Content>
+    <Content Include="cropped_image\male\johnny_depp\johnny_depp_02.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\daniel_radcliffe\daniel_radcliffe_07.jpg">
+    </Content>
+    <Content Include="cropped_image\male\johnny_depp\johnny_depp_01.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\daniel_radcliffe\daniel_radcliffe_06.jpg">
+    </Content>
+    <Content Include="cropped_image\male\george_clooney\george_clooney_11.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\daniel_radcliffe\daniel_radcliffe_05.jpg">
+    </Content>
+    <Content Include="cropped_image\male\george_clooney\george_clooney_10.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\daniel_radcliffe\daniel_radcliffe_04.jpg">
+    </Content>
+    <Content Include="cropped_image\male\george_clooney\george_clooney_09.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\daniel_radcliffe\daniel_radcliffe_03.jpg">
+    </Content>
+    <Content Include="cropped_image\male\george_clooney\george_clooney_08.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\daniel_radcliffe\daniel_radcliffe_02.jpg">
+    </Content>
+    <Content Include="cropped_image\male\george_clooney\george_clooney_07.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\daniel_radcliffe\daniel_radcliffe_01.jpg">
+    </Content>
+    <Content Include="cropped_image\male\george_clooney\george_clooney_06.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\chen_yixun\chen_yixun_11.jpg">
+    </Content>
+    <Content Include="cropped_image\male\george_clooney\george_clooney_05.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\chen_yixun\chen_yixun_10.jpg">
+    </Content>
+    <Content Include="cropped_image\male\george_clooney\george_clooney_04.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\chen_yixun\chen_yixun_08.jpg">
+    </Content>
+    <Content Include="cropped_image\male\george_clooney\george_clooney_03.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\chen_yixun\chen_yixun_07.jpg">
+    </Content>
+    <Content Include="cropped_image\male\george_clooney\george_clooney_02.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\chen_yixun\chen_yixun_06.jpg">
+    </Content>
+    <Content Include="cropped_image\male\george_clooney\george_clooney_01.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\chen_yixun\chen_yixun_05.jpg">
+    </Content>
+    <Content Include="cropped_image\male\daniel_radcliffe\daniel_radcliffe_11.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\chen_yixun\chen_yixun_04.jpg">
+    </Content>
+    <Content Include="cropped_image\male\daniel_radcliffe\daniel_radcliffe_10.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\chen_yixun\chen_yixun_03.jpg">
+    </Content>
+    <Content Include="cropped_image\male\daniel_radcliffe\daniel_radcliffe_09.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\chen_yixun\chen_yixun_02.jpg">
+    </Content>
+    <Content Include="cropped_image\male\daniel_radcliffe\daniel_radcliffe_08.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\chen_yixun\chen_yixun_01.jpg">
+    </Content>
+    <Content Include="cropped_image\male\daniel_radcliffe\daniel_radcliffe_07.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\brad_pitt\brad_pitt_14.jpg">
+    </Content>
+    <Content Include="cropped_image\male\daniel_radcliffe\daniel_radcliffe_06.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\brad_pitt\brad_pitt_13.jpg">
+    </Content>
+    <Content Include="cropped_image\male\daniel_radcliffe\daniel_radcliffe_05.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\brad_pitt\brad_pitt_12.jpg">
+    </Content>
+    <Content Include="cropped_image\male\daniel_radcliffe\daniel_radcliffe_04.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\brad_pitt\brad_pitt_11.jpg">
+    </Content>
+    <Content Include="cropped_image\male\daniel_radcliffe\daniel_radcliffe_03.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\brad_pitt\brad_pitt_10.jpg">
+    </Content>
+    <Content Include="cropped_image\male\daniel_radcliffe\daniel_radcliffe_02.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\brad_pitt\brad_pitt_09.jpg">
+    </Content>
+    <Content Include="cropped_image\male\daniel_radcliffe\daniel_radcliffe_01.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\brad_pitt\brad_pitt_08.jpg">
+    </Content>
+    <Content Include="cropped_image\male\chen_yixun\chen_yixun_11.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\brad_pitt\brad_pitt_07.jpg">
+    </Content>
+    <Content Include="cropped_image\male\chen_yixun\chen_yixun_10.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\brad_pitt\brad_pitt_06.jpg">
+    </Content>
+    <Content Include="cropped_image\male\chen_yixun\chen_yixun_08.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\brad_pitt\brad_pitt_05.jpg">
+    </Content>
+    <Content Include="cropped_image\male\chen_yixun\chen_yixun_07.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\brad_pitt\brad_pitt_04.jpg">
+    </Content>
+    <Content Include="cropped_image\male\chen_yixun\chen_yixun_06.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\brad_pitt\brad_pitt_03.jpg">
+    </Content>
+    <Content Include="cropped_image\male\chen_yixun\chen_yixun_05.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\brad_pitt\brad_pitt_01.jpg">
+    </Content>
+    <Content Include="cropped_image\male\chen_yixun\chen_yixun_04.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\arnold_schwarzenegger\arnold_schwarzenegger_10.jpg">
+    </Content>
+    <Content Include="cropped_image\male\chen_yixun\chen_yixun_03.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\arnold_schwarzenegger\arnold_schwarzenegger_09.jpg">
+    </Content>
+    <Content Include="cropped_image\male\chen_yixun\chen_yixun_02.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\arnold_schwarzenegger\arnold_schwarzenegger_08.jpg">
+    </Content>
+    <Content Include="cropped_image\male\chen_yixun\chen_yixun_01.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\arnold_schwarzenegger\arnold_schwarzenegger_07.jpg">
+    </Content>
+    <Content Include="cropped_image\male\brad_pitt\brad_pitt_14.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\arnold_schwarzenegger\arnold_schwarzenegger_06.jpg">
+    </Content>
+    <Content Include="cropped_image\male\brad_pitt\brad_pitt_13.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\arnold_schwarzenegger\arnold_schwarzenegger_05.jpg">
+    </Content>
+    <Content Include="cropped_image\male\brad_pitt\brad_pitt_12.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\arnold_schwarzenegger\arnold_schwarzenegger_04.jpg">
+    </Content>
+    <Content Include="cropped_image\male\brad_pitt\brad_pitt_11.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\arnold_schwarzenegger\arnold_schwarzenegger_03.jpg">
+    </Content>
+    <Content Include="cropped_image\male\brad_pitt\brad_pitt_10.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\arnold_schwarzenegger\arnold_schwarzenegger_02.jpg">
+    </Content>
+    <Content Include="cropped_image\male\brad_pitt\brad_pitt_09.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\male\arnold_schwarzenegger\arnold_schwarzenegger_01.jpg">
+    </Content>
+    <Content Include="cropped_image\male\brad_pitt\brad_pitt_08.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\zhou_xun\zhou_xun_10.jpg">
+    </Content>
+    <Content Include="cropped_image\male\brad_pitt\brad_pitt_07.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\zhou_xun\zhou_xun_09.jpg">
+    </Content>
+    <Content Include="cropped_image\male\brad_pitt\brad_pitt_06.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\zhou_xun\zhou_xun_08.jpg">
+    </Content>
+    <Content Include="cropped_image\male\brad_pitt\brad_pitt_05.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\zhou_xun\zhou_xun_07.jpg">
+    </Content>
+    <Content Include="cropped_image\male\brad_pitt\brad_pitt_04.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\zhou_xun\zhou_xun_06.jpg">
+    </Content>
+    <Content Include="cropped_image\male\brad_pitt\brad_pitt_03.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\zhou_xun\zhou_xun_05.jpg">
+    </Content>
+    <Content Include="cropped_image\male\brad_pitt\brad_pitt_01.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\zhou_xun\zhou_xun_04.jpg">
+    </Content>
+    <Content Include="cropped_image\male\arnold_schwarzenegger\arnold_schwarzenegger_10.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\zhou_xun\zhou_xun_03.jpg">
+    </Content>
+    <Content Include="cropped_image\male\arnold_schwarzenegger\arnold_schwarzenegger_09.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\zhou_xun\zhou_xun_02.jpg">
+    </Content>
+    <Content Include="cropped_image\male\arnold_schwarzenegger\arnold_schwarzenegger_08.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\zhou_xun\zhou_xun_01.jpg">
+    </Content>
+    <Content Include="cropped_image\male\arnold_schwarzenegger\arnold_schwarzenegger_07.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\zhang_yuqi\zhang_yuqi_11.jpg">
+    </Content>
+    <Content Include="cropped_image\male\arnold_schwarzenegger\arnold_schwarzenegger_06.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\zhang_yuqi\zhang_yuqi_10.jpg">
+    </Content>
+    <Content Include="cropped_image\male\arnold_schwarzenegger\arnold_schwarzenegger_05.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\zhang_yuqi\zhang_yuqi_09.jpg">
+    </Content>
+    <Content Include="cropped_image\male\arnold_schwarzenegger\arnold_schwarzenegger_04.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\zhang_yuqi\zhang_yuqi_08.jpg">
+    </Content>
+    <Content Include="cropped_image\male\arnold_schwarzenegger\arnold_schwarzenegger_03.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\zhang_yuqi\zhang_yuqi_07.jpg">
+    </Content>
+    <Content Include="cropped_image\male\arnold_schwarzenegger\arnold_schwarzenegger_02.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\zhang_yuqi\zhang_yuqi_06.jpg">
+    </Content>
+    <Content Include="cropped_image\male\arnold_schwarzenegger\arnold_schwarzenegger_01.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\zhang_yuqi\zhang_yuqi_05.jpg">
+    </Content>
+    <Content Include="cropped_image\female\zhou_xun\zhou_xun_10.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\zhang_yuqi\zhang_yuqi_04.jpg">
+    </Content>
+    <Content Include="cropped_image\female\zhou_xun\zhou_xun_09.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\zhang_yuqi\zhang_yuqi_03.jpg">
+    </Content>
+    <Content Include="cropped_image\female\zhou_xun\zhou_xun_08.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\zhang_yuqi\zhang_yuqi_02.jpg">
+    </Content>
+    <Content Include="cropped_image\female\zhou_xun\zhou_xun_07.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\zhang_yuqi\zhang_yuqi_01.jpg">
+    </Content>
+    <Content Include="cropped_image\female\zhou_xun\zhou_xun_06.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\xu_jiao\xu_jiao_13.jpg">
+    </Content>
+    <Content Include="cropped_image\female\zhou_xun\zhou_xun_05.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\xu_jiao\xu_jiao_12.jpg">
+    </Content>
+    <Content Include="cropped_image\female\zhou_xun\zhou_xun_04.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\xu_jiao\xu_jiao_11.jpg">
+    </Content>
+    <Content Include="cropped_image\female\zhou_xun\zhou_xun_03.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\xu_jiao\xu_jiao_10.jpg">
+    </Content>
+    <Content Include="cropped_image\female\zhou_xun\zhou_xun_02.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\xu_jiao\xu_jiao_09.jpg">
+    </Content>
+    <Content Include="cropped_image\female\zhou_xun\zhou_xun_01.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\xu_jiao\xu_jiao_08.jpg">
+    </Content>
+    <Content Include="cropped_image\female\zhang_yuqi\zhang_yuqi_11.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\xu_jiao\xu_jiao_07.jpg">
+    </Content>
+    <Content Include="cropped_image\female\zhang_yuqi\zhang_yuqi_10.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\xu_jiao\xu_jiao_06.jpg">
+    </Content>
+    <Content Include="cropped_image\female\zhang_yuqi\zhang_yuqi_09.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\xu_jiao\xu_jiao_05.jpg">
+    </Content>
+    <Content Include="cropped_image\female\zhang_yuqi\zhang_yuqi_08.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\xu_jiao\xu_jiao_04.jpg">
+    </Content>
+    <Content Include="cropped_image\female\zhang_yuqi\zhang_yuqi_07.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\xu_jiao\xu_jiao_03.jpg">
+    </Content>
+    <Content Include="cropped_image\female\zhang_yuqi\zhang_yuqi_06.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\xu_jiao\xu_jiao_02.jpg">
+    </Content>
+    <Content Include="cropped_image\female\zhang_yuqi\zhang_yuqi_05.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\xu_jiao\xu_jiao_01.jpg">
+    </Content>
+    <Content Include="cropped_image\female\zhang_yuqi\zhang_yuqi_04.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\naomi_watts\naomi_watts_15.jpg">
+    </Content>
+    <Content Include="cropped_image\female\zhang_yuqi\zhang_yuqi_03.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\naomi_watts\naomi_watts_14.jpg">
+    </Content>
+    <Content Include="cropped_image\female\zhang_yuqi\zhang_yuqi_02.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\naomi_watts\naomi_watts_13.jpg">
+    </Content>
+    <Content Include="cropped_image\female\zhang_yuqi\zhang_yuqi_01.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\naomi_watts\naomi_watts_12.jpg">
+    </Content>
+    <Content Include="cropped_image\female\xu_jiao\xu_jiao_13.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\naomi_watts\naomi_watts_11.jpg">
+    </Content>
+    <Content Include="cropped_image\female\xu_jiao\xu_jiao_12.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\naomi_watts\naomi_watts_10.jpg">
+    </Content>
+    <Content Include="cropped_image\female\xu_jiao\xu_jiao_11.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\naomi_watts\naomi_watts_09.jpg">
+    </Content>
+    <Content Include="cropped_image\female\xu_jiao\xu_jiao_10.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\naomi_watts\naomi_watts_08.jpg">
+    </Content>
+    <Content Include="cropped_image\female\xu_jiao\xu_jiao_09.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\naomi_watts\naomi_watts_07.jpg">
+    </Content>
+    <Content Include="cropped_image\female\xu_jiao\xu_jiao_08.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\naomi_watts\naomi_watts_06.jpg">
+    </Content>
+    <Content Include="cropped_image\female\xu_jiao\xu_jiao_07.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\naomi_watts\naomi_watts_05.jpg">
+    </Content>
+    <Content Include="cropped_image\female\xu_jiao\xu_jiao_06.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\naomi_watts\naomi_watts_04.jpg">
+    </Content>
+    <Content Include="cropped_image\female\xu_jiao\xu_jiao_05.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\naomi_watts\naomi_watts_03.jpg">
+    </Content>
+    <Content Include="cropped_image\female\xu_jiao\xu_jiao_04.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\naomi_watts\naomi_watts_02.jpg">
+    </Content>
+    <Content Include="cropped_image\female\xu_jiao\xu_jiao_03.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\naomi_watts\naomi_watts_01.jpg">
+    </Content>
+    <Content Include="cropped_image\female\xu_jiao\xu_jiao_02.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\mackenzie_foy\mackenzie_foy_19.jpg">
+    </Content>
+    <Content Include="cropped_image\female\xu_jiao\xu_jiao_01.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\mackenzie_foy\mackenzie_foy_18.jpg">
+    </Content>
+    <Content Include="cropped_image\female\naomi_watts\naomi_watts_15.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\mackenzie_foy\mackenzie_foy_17.jpg">
+    </Content>
+    <Content Include="cropped_image\female\naomi_watts\naomi_watts_14.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\mackenzie_foy\mackenzie_foy_16.jpg">
+    </Content>
+    <Content Include="cropped_image\female\naomi_watts\naomi_watts_13.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\mackenzie_foy\mackenzie_foy_15.jpg">
+    </Content>
+    <Content Include="cropped_image\female\naomi_watts\naomi_watts_12.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\mackenzie_foy\mackenzie_foy_13.jpg">
+    </Content>
+    <Content Include="cropped_image\female\naomi_watts\naomi_watts_11.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\mackenzie_foy\mackenzie_foy_12.jpg">
+    </Content>
+    <Content Include="cropped_image\female\naomi_watts\naomi_watts_10.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\mackenzie_foy\mackenzie_foy_11.jpg">
+    </Content>
+    <Content Include="cropped_image\female\naomi_watts\naomi_watts_09.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\mackenzie_foy\mackenzie_foy_09.jpg">
+    </Content>
+    <Content Include="cropped_image\female\naomi_watts\naomi_watts_08.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\mackenzie_foy\mackenzie_foy_08.jpg">
+    </Content>
+    <Content Include="cropped_image\female\naomi_watts\naomi_watts_07.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\mackenzie_foy\mackenzie_foy_07.jpg">
+    </Content>
+    <Content Include="cropped_image\female\naomi_watts\naomi_watts_06.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\mackenzie_foy\mackenzie_foy_06.jpg">
+    </Content>
+    <Content Include="cropped_image\female\naomi_watts\naomi_watts_05.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\mackenzie_foy\mackenzie_foy_05.jpg">
+    </Content>
+    <Content Include="cropped_image\female\naomi_watts\naomi_watts_04.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\mackenzie_foy\mackenzie_foy_04.jpg">
+    </Content>
+    <Content Include="cropped_image\female\naomi_watts\naomi_watts_03.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\mackenzie_foy\mackenzie_foy_02.jpg">
+    </Content>
+    <Content Include="cropped_image\female\naomi_watts\naomi_watts_02.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\mackenzie_foy\mackenzie_foy_01.jpg">
+    </Content>
+    <Content Include="cropped_image\female\naomi_watts\naomi_watts_01.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\lin_miaoke\lin_miaoke_10.jpg">
+    </Content>
+    <Content Include="cropped_image\female\mackenzie_foy\mackenzie_foy_19.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\lin_miaoke\lin_miaoke_08.jpg">
+    </Content>
+    <Content Include="cropped_image\female\mackenzie_foy\mackenzie_foy_18.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\lin_miaoke\lin_miaoke_06.jpg">
+    </Content>
+    <Content Include="cropped_image\female\mackenzie_foy\mackenzie_foy_17.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\lin_miaoke\lin_miaoke_05.jpg">
+    </Content>
+    <Content Include="cropped_image\female\mackenzie_foy\mackenzie_foy_16.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\lin_miaoke\lin_miaoke_04.jpg">
+    </Content>
+    <Content Include="cropped_image\female\mackenzie_foy\mackenzie_foy_15.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\lin_miaoke\lin_miaoke_03.jpg">
+    </Content>
+    <Content Include="cropped_image\female\mackenzie_foy\mackenzie_foy_13.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\lin_miaoke\lin_miaoke_02.jpg">
+    </Content>
+    <Content Include="cropped_image\female\mackenzie_foy\mackenzie_foy_12.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\katy_perry\katy_perry_15.jpg">
+    </Content>
+    <Content Include="cropped_image\female\mackenzie_foy\mackenzie_foy_11.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\katy_perry\katy_perry_13.jpg">
+    </Content>
+    <Content Include="cropped_image\female\mackenzie_foy\mackenzie_foy_09.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\katy_perry\katy_perry_12.jpg">
+    </Content>
+    <Content Include="cropped_image\female\mackenzie_foy\mackenzie_foy_08.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\katy_perry\katy_perry_11.jpg">
+    </Content>
+    <Content Include="cropped_image\female\mackenzie_foy\mackenzie_foy_07.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\katy_perry\katy_perry_10.jpg">
+    </Content>
+    <Content Include="cropped_image\female\mackenzie_foy\mackenzie_foy_06.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\katy_perry\katy_perry_09.jpg">
+    </Content>
+    <Content Include="cropped_image\female\mackenzie_foy\mackenzie_foy_05.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\katy_perry\katy_perry_06.jpg">
+    </Content>
+    <Content Include="cropped_image\female\mackenzie_foy\mackenzie_foy_04.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\katy_perry\katy_perry_04.jpg">
+    </Content>
+    <Content Include="cropped_image\female\mackenzie_foy\mackenzie_foy_02.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\katy_perry\katy_perry_03.jpg">
+    </Content>
+    <Content Include="cropped_image\female\mackenzie_foy\mackenzie_foy_01.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\katy_perry\katy_perry_02.jpg">
+    </Content>
+    <Content Include="cropped_image\female\lin_miaoke\lin_miaoke_10.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\katy_perry\katy_perry_01.jpg">
+    </Content>
+    <Content Include="cropped_image\female\lin_miaoke\lin_miaoke_08.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\jennifer_lopez\jennifer_lopez_14.jpg">
+    </Content>
+    <Content Include="cropped_image\female\lin_miaoke\lin_miaoke_06.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\jennifer_lopez\jennifer_lopez_13.jpg">
+    </Content>
+    <Content Include="cropped_image\female\lin_miaoke\lin_miaoke_05.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\jennifer_lopez\jennifer_lopez_12.jpg">
+    </Content>
+    <Content Include="cropped_image\female\lin_miaoke\lin_miaoke_04.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\jennifer_lopez\jennifer_lopez_11.jpg">
+    </Content>
+    <Content Include="cropped_image\female\lin_miaoke\lin_miaoke_03.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\jennifer_lopez\jennifer_lopez_10.jpg">
+    </Content>
+    <Content Include="cropped_image\female\lin_miaoke\lin_miaoke_02.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\jennifer_lopez\jennifer_lopez_09.jpg">
+    </Content>
+    <Content Include="cropped_image\female\katy_perry\katy_perry_15.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\jennifer_lopez\jennifer_lopez_08.jpg">
+    </Content>
+    <Content Include="cropped_image\female\katy_perry\katy_perry_13.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\jennifer_lopez\jennifer_lopez_07.jpg">
+    </Content>
+    <Content Include="cropped_image\female\katy_perry\katy_perry_12.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\jennifer_lopez\jennifer_lopez_06.jpg">
+    </Content>
+    <Content Include="cropped_image\female\katy_perry\katy_perry_11.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\jennifer_lopez\jennifer_lopez_05.jpg">
+    </Content>
+    <Content Include="cropped_image\female\katy_perry\katy_perry_10.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\jennifer_lopez\jennifer_lopez_04.jpg">
+    </Content>
+    <Content Include="cropped_image\female\katy_perry\katy_perry_09.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\jennifer_lopez\jennifer_lopez_03.jpg">
+    </Content>
+    <Content Include="cropped_image\female\katy_perry\katy_perry_06.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="cropped_image\female\jennifer_lopez\jennifer_lopez_01.jpg">
+    </Content>
+    <Content Include="cropped_image\female\katy_perry\katy_perry_04.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
+    </Content>
+    <Content Include="cropped_image\female\katy_perry\katy_perry_03.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="cropped_image\female\katy_perry\katy_perry_02.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="cropped_image\female\katy_perry\katy_perry_01.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="cropped_image\female\jennifer_lopez\jennifer_lopez_14.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="cropped_image\female\jennifer_lopez\jennifer_lopez_13.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="cropped_image\female\jennifer_lopez\jennifer_lopez_12.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="cropped_image\female\jennifer_lopez\jennifer_lopez_11.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="cropped_image\female\jennifer_lopez\jennifer_lopez_10.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="cropped_image\female\jennifer_lopez\jennifer_lopez_09.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="cropped_image\female\jennifer_lopez\jennifer_lopez_08.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="cropped_image\female\jennifer_lopez\jennifer_lopez_07.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="cropped_image\female\jennifer_lopez\jennifer_lopez_06.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="cropped_image\female\jennifer_lopez\jennifer_lopez_05.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="cropped_image\female\jennifer_lopez\jennifer_lopez_04.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="cropped_image\female\jennifer_lopez\jennifer_lopez_03.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="cropped_image\female\jennifer_lopez\jennifer_lopez_01.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
