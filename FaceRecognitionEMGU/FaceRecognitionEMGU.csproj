@@ -153,9 +153,7 @@
     <Content Include="opencv_bgsegm300.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="opencv_calib3d300.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <Content Include="opencv_calib3d300.dll" />
     <Content Include="opencv_core300.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -192,7 +190,9 @@
     <Content Include="opencv_optflow300.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="opencv_photo300.dll" />
+    <Content Include="opencv_photo300.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="opencv_shape300.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -202,8 +202,12 @@
     <Content Include="opencv_superres300.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="opencv_text300.dll" />
-    <Content Include="opencv_video300.dll" />
+    <Content Include="opencv_text300.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="opencv_video300.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="opencv_videoio300.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
