@@ -34,6 +34,9 @@
     <Reference Include="Emgu.CV">
       <HintPath>..\ExternalLib\x86\Emgu.CV.dll</HintPath>
     </Reference>
+    <Reference Include="Emgu.CV.Contrib">
+      <HintPath>..\ExternalLib\x86\Emgu.CV.Contrib.dll</HintPath>
+    </Reference>
     <Reference Include="Emgu.CV.UI">
       <HintPath>..\ExternalLib\x86\Emgu.CV.UI.dll</HintPath>
     </Reference>
