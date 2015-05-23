@@ -41,6 +41,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BetafaceDetector.cs" />
+    <Compile Include="BetafaceImageInfoResponse.cs">
+      <DependentUpon>BetafaceImageInfoResponse.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
