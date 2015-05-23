@@ -13,6 +13,7 @@ using FaceRecognitionEMGU;
 
 using System.Xml;
 using System.Text;
+using FaceRecognitionBetaface;
 
 namespace Demo1.ViewModel
 {
@@ -210,6 +211,8 @@ namespace Demo1.ViewModel
 
         #region Betaface
 
+        BetafaceDetector betafaceDetector;
+
         public const string BetafaceResultPropertyName = "BetafaceResult";
         private String _betafaceResult;
         public String BetafaceResult
@@ -234,14 +237,17 @@ namespace Demo1.ViewModel
             {
                 BetafaceResult = "Detecting...";
 
-                BetafaceServiceConnection conn = new BetafaceServiceConnection();
+                betafaceDetector = new BetafaceDetector();
 
                 Task betafaceTask = new Task(
                         () =>
                         {
                             Image userImage = Image.FromFile(ImageSourcePath);
 
-                            BetafaceResult = FormatXml(conn.GetUserInfo(userImage));
+                            //BetafaceResult = FormatXml(betafaceDetector.GetUserInfo(userImage));
+
+                            BetafaceImageInfoResponseType result = betafaceDetector.GetUserInfoObject(userImage);
+
                         });
 
                 betafaceTask.Start();

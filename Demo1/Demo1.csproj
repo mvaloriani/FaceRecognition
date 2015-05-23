@@ -83,7 +83,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="BetafaceServiceConnection.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Page Include="MainWindow.xaml">
@@ -131,6 +130,10 @@
     <ProjectReference Include="..\ClientLibrary\ClientLibrary.csproj">
       <Project>{25d58ba5-660f-407b-803c-22b4547c09dc}</Project>
       <Name>ClientLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FaceRecognitionBetaface\FaceRecognitionBetaface.csproj">
+      <Project>{44f288d4-7bbb-4e59-a9af-6ec6cceebf9e}</Project>
+      <Name>FaceRecognitionBetaface</Name>
     </ProjectReference>
     <ProjectReference Include="..\FaceRecognitionEMGU\FaceRecognitionEMGU.csproj">
       <Project>{596e65e6-bbef-4b4a-a6cb-0711ac703c99}</Project>

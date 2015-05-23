@@ -16,29 +16,27 @@ using System.Xml.Serialization;
 
 namespace FaceRecognitionBetaface
 {
-
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.0.30319.18020")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
-    [System.Xml.Serialization.XmlRootAttribute(Namespace = "", IsNullable = false)]
-    public partial class BetafaceImageInfoResponse
+    [System.Xml.Serialization.XmlRootAttribute("BetafaceImageInfoResponse", Namespace = "", IsNullable = false)]
+    public partial class BetafaceImageInfoResponseType
     {
 
-        private int int_responseField;
+        private sbyte int_responseField;
 
         private string string_responseField;
 
         private string checksumField;
 
-        private BetafaceImageInfoResponseFaces facesField;
+        private facesType facesField;
 
         private string uidField;
 
         /// <remarks/>
-        public int int_response
+        public sbyte int_response
         {
             get
             {
@@ -77,7 +75,7 @@ namespace FaceRecognitionBetaface
         }
 
         /// <remarks/>
-        public BetafaceImageInfoResponseFaces faces
+        public facesType faces
         {
             get
             {
@@ -108,14 +106,13 @@ namespace FaceRecognitionBetaface
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
-    public partial class BetafaceImageInfoResponseFaces
+    public partial class facesType
     {
 
-        private BetafaceImageInfoResponseFacesFaceInfo faceInfoField;
+        private FaceInfoType faceInfoField;
 
         /// <remarks/>
-        public BetafaceImageInfoResponseFacesFaceInfo FaceInfo
+        public FaceInfoType FaceInfo
         {
             get
             {
@@ -133,34 +130,33 @@ namespace FaceRecognitionBetaface
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
-    public partial class BetafaceImageInfoResponseFacesFaceInfo
+    public partial class FaceInfoType
     {
 
-        private double angleField;
+        private float angleField;
 
-        private double heightField;
+        private float heightField;
 
         private string image_uidField;
 
-        private BetafaceImageInfoResponseFacesFaceInfoPointInfo[] pointsField;
+        private PointInfoType[] pointsField;
 
-        private double scoreField;
+        private float scoreField;
 
-        private BetafaceImageInfoResponseFacesFaceInfoTagInfo[] tagsField;
+        private TagInfoType[] tagsField;
 
         private string uidField;
 
         private string user_pointsField;
 
-        private double widthField;
+        private float widthField;
 
-        private double xField;
+        private float xField;
 
-        private double yField;
+        private float yField;
 
         /// <remarks/>
-        public double angle
+        public float angle
         {
             get
             {
@@ -173,7 +169,7 @@ namespace FaceRecognitionBetaface
         }
 
         /// <remarks/>
-        public double height
+        public float height
         {
             get
             {
@@ -200,7 +196,7 @@ namespace FaceRecognitionBetaface
 
         /// <remarks/>
         [System.Xml.Serialization.XmlArrayItemAttribute("PointInfo", IsNullable = false)]
-        public BetafaceImageInfoResponseFacesFaceInfoPointInfo[] points
+        public PointInfoType[] points
         {
             get
             {
@@ -213,7 +209,7 @@ namespace FaceRecognitionBetaface
         }
 
         /// <remarks/>
-        public double score
+        public float score
         {
             get
             {
@@ -227,7 +223,7 @@ namespace FaceRecognitionBetaface
 
         /// <remarks/>
         [System.Xml.Serialization.XmlArrayItemAttribute("TagInfo", IsNullable = false)]
-        public BetafaceImageInfoResponseFacesFaceInfoTagInfo[] tags
+        public TagInfoType[] tags
         {
             get
             {
@@ -253,6 +249,7 @@ namespace FaceRecognitionBetaface
         }
 
         /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable = true)]
         public string user_points
         {
             get
@@ -266,7 +263,7 @@ namespace FaceRecognitionBetaface
         }
 
         /// <remarks/>
-        public double width
+        public float width
         {
             get
             {
@@ -279,7 +276,7 @@ namespace FaceRecognitionBetaface
         }
 
         /// <remarks/>
-        public double x
+        public float x
         {
             get
             {
@@ -292,7 +289,7 @@ namespace FaceRecognitionBetaface
         }
 
         /// <remarks/>
-        public double y
+        public float y
         {
             get
             {
@@ -310,17 +307,16 @@ namespace FaceRecognitionBetaface
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
-    public partial class BetafaceImageInfoResponseFacesFaceInfoPointInfo
+    public partial class PointInfoType
     {
 
         private string nameField;
 
-        private int typeField;
+        private short typeField;
 
-        private double xField;
+        private float xField;
 
-        private double yField;
+        private float yField;
 
         /// <remarks/>
         public string name
@@ -336,7 +332,7 @@ namespace FaceRecognitionBetaface
         }
 
         /// <remarks/>
-        public int type
+        public short type
         {
             get
             {
@@ -349,7 +345,7 @@ namespace FaceRecognitionBetaface
         }
 
         /// <remarks/>
-        public double x
+        public float x
         {
             get
             {
@@ -362,7 +358,7 @@ namespace FaceRecognitionBetaface
         }
 
         /// <remarks/>
-        public double y
+        public float y
         {
             get
             {
@@ -380,18 +376,17 @@ namespace FaceRecognitionBetaface
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
-    public partial class BetafaceImageInfoResponseFacesFaceInfoTagInfo
+    public partial class TagInfoType
     {
 
-        private double confidenceField;
+        private float confidenceField;
 
         private string nameField;
 
-        private int valueField;
+        private string valueField;
 
         /// <remarks/>
-        public double confidence
+        public float confidence
         {
             get
             {
@@ -417,7 +412,7 @@ namespace FaceRecognitionBetaface
         }
 
         /// <remarks/>
-        public int value
+        public string value
         {
             get
             {
