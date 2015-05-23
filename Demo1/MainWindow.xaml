@@ -33,6 +33,9 @@
         <ScrollViewer Grid.Row="2" Grid.Column="1" Margin="5" HorizontalScrollBarVisibility="Disabled">
             <TextBlock TextWrapping="Wrap" Text="{Binding BetafaceResult}"/>
         </ScrollViewer>
+        <Border Grid.Row="4"  Grid.Column="1" Margin="5" BorderBrush="#FF017D00" BorderThickness="3" >
+            <Image Source="{Binding BetafaceImageResult}" Stretch="Uniform"/>
+        </Border>
 
         <ScrollViewer Grid.Row="2" Grid.Column="2" Margin="5" HorizontalScrollBarVisibility="Disabled">
             <TextBlock TextWrapping="Wrap" Text="{Binding OxfordResult}"/>

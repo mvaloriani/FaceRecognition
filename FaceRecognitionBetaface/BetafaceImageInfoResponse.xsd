@@ -1,58 +1,65 @@
 <?xml version="1.0"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified">
-  <xs:element name="BetafaceImageInfoResponse" type="BetafaceImageInfoResponseType"/>
-  <xs:complexType name="PointInfoType">
-    <xs:sequence>
-      <xs:element type="xs:string" name="name"/>
-      <xs:element type="xs:short" name="type"/>
-      <xs:element type="xs:float" name="x"/>
-      <xs:element type="xs:float" name="y"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="pointsType">
-    <xs:sequence>
-      <xs:element type="PointInfoType" name="PointInfo" maxOccurs="unbounded" minOccurs="0"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="TagInfoType">
-    <xs:sequence>
-      <xs:element type="xs:float" name="confidence"/>
-      <xs:element type="xs:string" name="name"/>
-      <xs:element type="xs:string" name="value"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="tagsType">
-    <xs:sequence>
-      <xs:element type="TagInfoType" name="TagInfo" maxOccurs="unbounded" minOccurs="0"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="FaceInfoType">
-    <xs:sequence>
-      <xs:element type="xs:float" name="angle"/>
-      <xs:element type="xs:float" name="height"/>
-      <xs:element type="xs:string" name="image_uid"/>
-      <xs:element type="pointsType" name="points"/>
-      <xs:element type="xs:float" name="score"/>
-      <xs:element type="tagsType" name="tags"/>
-      <xs:element type="xs:string" name="uid"/>
-      <xs:element type="xs:string" name="user_points" nillable="true"/>
-      <xs:element type="xs:float" name="width"/>
-      <xs:element type="xs:float" name="x"/>
-      <xs:element type="xs:float" name="y"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="facesType">
-    <xs:sequence>
-      <xs:element type="FaceInfoType" name="FaceInfo"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="BetafaceImageInfoResponseType">
-    <xs:sequence>
-      <xs:element type="xs:byte" name="int_response"/>
-      <xs:element type="xs:string" name="string_response"/>
-      <xs:element type="xs:string" name="checksum"/>
-      <xs:element type="facesType" name="faces"/>
-      <xs:element type="xs:string" name="uid"/>
-    </xs:sequence>
-  </xs:complexType>
+  <xs:element name="BetafaceImageInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element type="xs:byte" name="int_response"/>
+        <xs:element type="xs:string" name="string_response"/>
+        <xs:element type="xs:string" name="checksum"/>
+        <xs:element name="faces">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="FaceInfo" maxOccurs="unbounded" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:float" name="angle"/>
+                    <xs:element type="xs:float" name="height"/>
+                    <xs:element type="xs:string" name="image_uid"/>
+                    <xs:element name="points">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="PointInfo" maxOccurs="unbounded" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element type="xs:string" name="name"/>
+                                <xs:element type="xs:short" name="type"/>
+                                <xs:element type="xs:float" name="x"/>
+                                <xs:element type="xs:float" name="y"/>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element type="xs:float" name="score"/>
+                    <xs:element name="tags">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="TagInfo" maxOccurs="unbounded" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element type="xs:float" name="confidence"/>
+                                <xs:element type="xs:string" name="name"/>
+                                <xs:element type="xs:string" name="value"/>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element type="xs:string" name="uid"/>
+                    <xs:element type="xs:string" name="user_points" nillable="true"/>
+                    <xs:element type="xs:float" name="width"/>
+                    <xs:element type="xs:float" name="x"/>
+                    <xs:element type="xs:float" name="y"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element type="xs:string" name="uid"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>
