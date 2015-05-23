@@ -245,7 +245,7 @@ namespace Demo1.ViewModel
 
                             //BetafaceResult = FormatXml(betafaceDetector.GetUserInfo(userImage));
 
-                            BetafaceImageInfoResponse result = betafaceDetector.GetUserInfoObject(userImage);
+                            BetafaceImageInfoResponseType result = betafaceDetector.GetUserInfoObject(userImage);
 
                         });
 
@@ -274,7 +274,7 @@ namespace Demo1.ViewModel
 
         internal void Initialize()
         {
-            EmguFaceDetector emguDetector = new EmguFaceDetector(); 
+            //EmguFaceDetector emguDetector = new EmguFaceDetector(); 
         }
 
         internal void SelectImage()
