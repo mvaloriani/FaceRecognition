@@ -14,6 +14,7 @@ using FaceRecognitionEMGU;
 using System.Xml;
 using System.Text;
 using FaceRecognitionBetaface;
+using System.Windows.Threading;
 
 namespace Demo1.ViewModel
 {
@@ -213,20 +214,24 @@ namespace Demo1.ViewModel
 
         BetafaceDetector betafaceDetector;
 
-        BetafaceImageInfoResponse result;
+        BetafaceDetectorResult betafaceDetectorResult;
 
-        public const string BetafaceResultPropertyName = "BetafaceResult";
-        private String _betafaceResult;
-        public String BetafaceResult
+        Bitmap betafaceBitmapResult;
+
+        Task betafaceTask;
+
+        public const string BetafaceXMLResultPropertyName = "BetafaceXMLResult";
+        private String _betafaceXMLResult;
+        public String BetafaceXMLResult
         {
-            get { return _betafaceResult; }
+            get { return _betafaceXMLResult; }
             set
             {
-                if (_betafaceResult == value)
+                if (_betafaceXMLResult == value)
                 { return; }
 
-                _betafaceResult = value;
-                RaisePropertyChanged(BetafaceResultPropertyName);
+                _betafaceXMLResult = value;
+                RaisePropertyChanged(BetafaceXMLResultPropertyName);
             }
         }
 
@@ -246,58 +251,59 @@ namespace Demo1.ViewModel
 
         internal void Betaface()
         {
-            result = null;
-            Bitmap res = new Bitmap(ImageSourcePath);
-            //res = InsertShape(res, "filledrectangle", 100, 100, 20, 20, "Red");
-
-            //res = InsertShape(res, "filledrectangle", 200, 200, 20, 20, "Red"); 
-            BetafaceImageResult = ConvertBitmap(res);
-
-               
+            betafaceDetectorResult = null;
+            betafaceBitmapResult = new Bitmap(ImageSourcePath);
 
             if (ImageSourcePath != null)
             {
-                BetafaceResult = "Detecting...";
+                BetafaceXMLResult = "Detecting...";
 
                 betafaceDetector = new BetafaceDetector();
 
-                Task betafaceTask = new Task(
+                betafaceTask = new Task(
                         () =>
                         {
                             Image userImage = Image.FromFile(ImageSourcePath);
 
-                            //BetafaceResult = FormatXml(betafaceDetector.GetUserInfo(userImage));
-
-                            result = betafaceDetector.GetUserInfoObject(userImage);
-
+                            //Start user detection
+                            betafaceDetectorResult = betafaceDetector.StartUserDetection(userImage);
                         });
 
-                //betafaceTask.Start();
+                betafaceTask.Start();
 
                 betafaceTask.ContinueWith(
                     (continuation) =>
                     {
-                        if(result != null)
+                        if(betafaceDetectorResult != null)
                         {
-                            foreach (var face in result.faces)
+                            //write XML reponse
+                            BetafaceXMLResult = FormatXml(betafaceDetectorResult.BetafaceXMLResponse);
+
+                            //Draw results on image
+                            foreach (var face in betafaceDetectorResult.BetafaceObjectResponse.faces)
                             {
-                                res = InsertShape(res, "rectangle", (int)(face.x - (face.width / 2)) , (int)(face.y - (face.height / 2)), (int)face.width, (int)face.height, "Red");    
+                                betafaceBitmapResult = InsertShape(betafaceBitmapResult, "rectangle", (int)(face.x - (face.width / 2)) , (int)(face.y - (face.height / 2)), (int)face.width, (int)face.height, "Red");
+                                betafaceBitmapResult = InsertShape(betafaceBitmapResult, "filledellipse", (int)(face.points.Where(x => x.name == "basic eye left").First().x), (int)(face.points.Where(x => x.name == "basic eye left").First().y), 10, 10, "Red");
+                                betafaceBitmapResult = InsertShape(betafaceBitmapResult, "filledellipse", (int)(face.points.Where(x => x.name == "basic eye right").First().x), (int)(face.points.Where(x => x.name == "basic eye right").First().y), 10, 10, "Red");
+                                betafaceBitmapResult = InsertShape(betafaceBitmapResult, "filledellipse", (int)(face.points.Where(x => x.name == "basic nose tip").First().x), (int)(face.points.Where(x => x.name == "basic nose tip").First().y), 10, 10, "Red");
+                                betafaceBitmapResult = InsertShape(betafaceBitmapResult, "filledellipse", (int)(face.points.Where(x => x.name == "basic mouth left").First().x), (int)(face.points.Where(x => x.name == "basic mouth left").First().y), 10, 10, "Red");
+                                betafaceBitmapResult = InsertShape(betafaceBitmapResult, "filledellipse", (int)(face.points.Where(x => x.name == "basic mouth right").First().x), (int)(face.points.Where(x => x.name == "basic mouth right").First().y), 10, 10, "Red");
                             }
 
-                            //TODO: controllare errore!!!!!!
-                            
+                            var temp = ConvertBitmap(betafaceBitmapResult);
+                            temp.Freeze();
+
+                            Application.Current.Dispatcher.Invoke(new Action(() => { BetafaceImageResult = temp; }));
                         }
                         else
                         {
-                            BetafaceResult = "No user detected!";
+                            BetafaceXMLResult = "No user detected!";
                         }
-
-                        
                     });
             }
             else
             {
-                BetafaceResult = "No user image available";
+                BetafaceXMLResult = "No user image available";
             }
         }
 
