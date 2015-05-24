@@ -78,8 +78,10 @@ namespace Demo1.ViewModel
 
         internal async void Emgu()
         {
-            EmguFaceDetector emguDetector = new EmguFaceDetector(); 
-            emguDetector.detect(new Bitmap(ImageSourcePath));
+            EmguResult = "Training";
+            EmguFaceDetector emguDetector = new EmguFaceDetector("Default");
+            EmguResult = "Detecting";
+            EmguResult = ""+ emguDetector.detect(new Bitmap(ImageSourcePath));
         }
 
 
@@ -275,8 +277,7 @@ namespace Demo1.ViewModel
 
         internal void Initialize()
         {
-            EmguFaceDetector emguDetector = new EmguFaceDetector(); 
-
+           
         }
 
         internal void SelectImage()

@@ -39,6 +39,7 @@ namespace FaceRecognitionEMGU
         //public FaceRecognizer model = new FisherFaceRecognizer(0, double.MaxValue);
         public FaceRecognizer model;
 
+        public CascadeClassifier cascade;
 
          public int detect(System.Drawing.Bitmap img)
          {
@@ -50,34 +51,51 @@ namespace FaceRecognitionEMGU
 
          public int detect(Image<Gray, byte> img)
         {
+            var faces = cascade.DetectMultiScale(img);
+
             if (img == null) return -1;
 
             if (img.Height != 200 || img.Width != 200)
                 img = img.Resize(200, 200, Emgu.CV.CvEnum.Inter.Cubic);
+
 
             var res = model.Predict(img);
             return res.Label;
         }
 
 
-        public EmguFaceDetector()
+        public EmguFaceDetector(String preloadedTraining="")
         {
-            //this.filename = filename;
-            //this.separator = separator;
+            
 
             model = new FisherFaceRecognizer(2, 3000);
 
-            images = new List<Image<Gray, byte>>();
-            labels = new List<int>();
+            if (preloadedTraining == "")
+            {
+                images = new List<Image<Gray, byte>>();
+                labels = new List<int>();
+                prepareTrainingData();
+                model.Train(images.ToArray(), labels.ToArray());
+                model.Save("Default");
+            }
+            else
+            {
+                if (preloadedTraining=="Default")
+                    model.Load(preloadedTraining);
+                else
+                    model.Load(preloadedTraining);
+            }
 
-            prepareTrainedData();
-            model.Train(images.ToArray(), labels.ToArray());
+            cascade = new CascadeClassifier(AppDomain.CurrentDomain.BaseDirectory + "haarcascades\\haarcascade_frontalface_default.xml");
+
+       
         }
 
 
 
-        private void prepareTrainedData()
+        private void prepareTrainingData()
         {
+           
            string file = AppDomain.CurrentDomain.BaseDirectory + CROPPED_IMAGE_DIR + "\\" + CROPPED_IMAGE_FILE;
            
             if (!File.Exists(file))
@@ -110,7 +128,6 @@ namespace FaceRecognitionEMGU
                                 img = new Image<Gray, byte>(path);
                                 if (img.Height != 200 || img.Width != 200)
                                     img = img.Resize(200, 200, Emgu.CV.CvEnum.Inter.Cubic);
-
 
                                 images.Add(img);
                                 labels.Add(int.Parse(label));
