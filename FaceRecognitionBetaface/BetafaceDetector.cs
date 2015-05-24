@@ -127,7 +127,7 @@ namespace FaceRecognitionBetaface
             return responseFromServer;
         }
 
-        public BetafaceImageInfoResponseType GetUserInfoObject(Image userImage)
+        public BetafaceImageInfoResponse GetUserInfoObject(Image userImage)
         {
             //Image userImage = Image.FromFile(photoID);
             string base64ImageAndTag = ToBase64String(userImage);
@@ -226,10 +226,10 @@ namespace FaceRecognitionBetaface
 
             trovato = false;
 
-            XmlSerializer serializer = new XmlSerializer(typeof(BetafaceImageInfoResponseType));
+            XmlSerializer serializer = new XmlSerializer(typeof(BetafaceImageInfoResponse));
             
             xmlReader = XmlReader.Create(new StringReader(responseFromServer));
-            BetafaceImageInfoResponseType result = (BetafaceImageInfoResponseType)serializer.Deserialize(xmlReader);
+            BetafaceImageInfoResponse result = (BetafaceImageInfoResponse)serializer.Deserialize(xmlReader);
 
 
             reader.Close();

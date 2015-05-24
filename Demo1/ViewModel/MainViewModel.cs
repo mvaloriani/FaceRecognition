@@ -215,6 +215,8 @@ namespace Demo1.ViewModel
 
         BetafaceDetector betafaceDetector;
 
+        BetafaceImageInfoResponse result;
+
         public const string BetafaceResultPropertyName = "BetafaceResult";
         private String _betafaceResult;
         public String BetafaceResult
@@ -230,10 +232,30 @@ namespace Demo1.ViewModel
             }
         }
 
-
+        public const string BetafaceImageResultPropertyName = "BetafaceImageResult";
+        private BitmapSource _betafaceImageResult = null;
+        public BitmapSource BetafaceImageResult
+        {
+            get { return _betafaceImageResult; }
+            set
+            {
+                if (_betafaceImageResult == value)
+                { return; }
+                _betafaceImageResult = value;
+                RaisePropertyChanged(BetafaceImageResultPropertyName);
+            }
+        }
 
         internal void Betaface()
         {
+            result = null;
+            Bitmap res = new Bitmap(ImageSourcePath);
+            //res = InsertShape(res, "filledrectangle", 100, 100, 20, 20, "Red");
+
+            //res = InsertShape(res, "filledrectangle", 200, 200, 20, 20, "Red"); 
+            BetafaceImageResult = ConvertBitmap(res);
+
+               
 
             if (ImageSourcePath != null)
             {
@@ -248,11 +270,32 @@ namespace Demo1.ViewModel
 
                             //BetafaceResult = FormatXml(betafaceDetector.GetUserInfo(userImage));
 
-                            BetafaceImageInfoResponseType result = betafaceDetector.GetUserInfoObject(userImage);
+                            result = betafaceDetector.GetUserInfoObject(userImage);
 
                         });
 
-                betafaceTask.Start();
+                //betafaceTask.Start();
+
+                betafaceTask.ContinueWith(
+                    (continuation) =>
+                    {
+                        if(result != null)
+                        {
+                            foreach (var face in result.faces)
+                            {
+                                res = InsertShape(res, "rectangle", (int)(face.x - (face.width / 2)) , (int)(face.y - (face.height / 2)), (int)face.width, (int)face.height, "Red");    
+                            }
+
+                            //TODO: controllare errore!!!!!!
+                            
+                        }
+                        else
+                        {
+                            BetafaceResult = "No user detected!";
+                        }
+
+                        
+                    });
             }
             else
             {
@@ -260,7 +303,7 @@ namespace Demo1.ViewModel
             }
         }
 
-        public string FormatXml(string xml)
+        private string FormatXml(string xml)
         {
             var doc = new XmlDocument();
             doc.LoadXml(xml);
