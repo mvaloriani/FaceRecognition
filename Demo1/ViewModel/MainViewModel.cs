@@ -327,12 +327,12 @@ namespace Demo1.ViewModel
                             //Draw results on image
                             foreach (var face in betafaceDetectorResult.BetafaceObjectResponse.faces)
                             {
-                                betafaceBitmapResult = InsertShape(betafaceBitmapResult, "rectangle", (int)(face.x - (face.width / 2)) , (int)(face.y - (face.height / 2)), (int)face.width, (int)face.height, "Red");
-                                betafaceBitmapResult = InsertShape(betafaceBitmapResult, "filledellipse", (int)(face.points.Where(x => x.name == "basic eye left").First().x), (int)(face.points.Where(x => x.name == "basic eye left").First().y), 10, 10, "Red");
-                                betafaceBitmapResult = InsertShape(betafaceBitmapResult, "filledellipse", (int)(face.points.Where(x => x.name == "basic eye right").First().x), (int)(face.points.Where(x => x.name == "basic eye right").First().y), 10, 10, "Red");
-                                betafaceBitmapResult = InsertShape(betafaceBitmapResult, "filledellipse", (int)(face.points.Where(x => x.name == "basic nose tip").First().x), (int)(face.points.Where(x => x.name == "basic nose tip").First().y), 10, 10, "Red");
-                                betafaceBitmapResult = InsertShape(betafaceBitmapResult, "filledellipse", (int)(face.points.Where(x => x.name == "basic mouth left").First().x), (int)(face.points.Where(x => x.name == "basic mouth left").First().y), 10, 10, "Red");
-                                betafaceBitmapResult = InsertShape(betafaceBitmapResult, "filledellipse", (int)(face.points.Where(x => x.name == "basic mouth right").First().x), (int)(face.points.Where(x => x.name == "basic mouth right").First().y), 10, 10, "Red");
+                                betafaceBitmapResult = InsertShape(betafaceBitmapResult, "rectangle", (int)(face.x - (face.width / 2)), (int)(face.y - (face.height / 2)), (int)face.width, (int)face.height, "Red", 4f);
+                                betafaceBitmapResult = InsertShape(betafaceBitmapResult, "filledellipse", (int)(face.points.Where(x => x.name == "basic eye left").First().x), (int)(face.points.Where(x => x.name == "basic eye left").First().y), 10, 10, "Red", 4f);
+                                betafaceBitmapResult = InsertShape(betafaceBitmapResult, "filledellipse", (int)(face.points.Where(x => x.name == "basic eye right").First().x), (int)(face.points.Where(x => x.name == "basic eye right").First().y), 10, 10, "Red", 4f);
+                                betafaceBitmapResult = InsertShape(betafaceBitmapResult, "filledellipse", (int)(face.points.Where(x => x.name == "basic nose tip").First().x), (int)(face.points.Where(x => x.name == "basic nose tip").First().y), 10, 10, "Red", 4f);
+                                betafaceBitmapResult = InsertShape(betafaceBitmapResult, "filledellipse", (int)(face.points.Where(x => x.name == "basic mouth left").First().x), (int)(face.points.Where(x => x.name == "basic mouth left").First().y), 10, 10, "Red", 4f);
+                                betafaceBitmapResult = InsertShape(betafaceBitmapResult, "filledellipse", (int)(face.points.Where(x => x.name == "basic mouth right").First().x), (int)(face.points.Where(x => x.name == "basic mouth right").First().y), 10, 10, "Red", 4f);
                             }
 
                             var temp = ConvertBitmap(betafaceBitmapResult);
