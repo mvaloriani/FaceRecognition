@@ -38,35 +38,59 @@ namespace FaceRecognitionEMGU
 
         //public FaceRecognizer model = new FisherFaceRecognizer(0, double.MaxValue);
         public FaceRecognizer model;
+        public CascadeClassifier cascadeEyes;
+        public CascadeClassifier cascadeFace;
 
-        public CascadeClassifier cascade;
-
-         public int detect(System.Drawing.Bitmap img)
-         {
-            // Normalizing it to grayscale
-             Image<Gray, byte> normalizedMasterImage = new Image<Gray, byte>(img);
-             
-             return detect (normalizedMasterImage);
-         }
-
-         public int detect(Image<Gray, byte> img)
+        public async Task<List<EMGUFace>> detect(System.Drawing.Bitmap img)
         {
-            var faces = cascade.DetectMultiScale(img);
+            // Normalizing it to grayscale
+            Image<Gray, byte> normalizedMasterImage = new Image<Gray, byte>(img);
 
-            if (img == null) return -1;
+            return detect(normalizedMasterImage).Result;
+        }
 
-            if (img.Height != 200 || img.Width != 200)
-                img = img.Resize(200, 200, Emgu.CV.CvEnum.Inter.Cubic);
+        public async Task<List<EMGUFace>> detect(Image<Gray, byte> img)
+        {
+            List<EMGUFace> faces = new List<EMGUFace>();
+
+            if (img == null) return faces;
+
+          //  var rect = cascade.DetectMultiScale(img, 1.4, 0, new Size(100, 100), new Size(800, 800));
+            var rect = cascadeFace.DetectMultiScale(img, 1.2, 10);
 
 
-            var res = model.Predict(img);
-            return res.Label;
+            foreach (var r in rect)
+            {
+                Image<Gray, byte> imgBox = img.GetSubRect(r);
+
+                var eyes = cascadeEyes.DetectMultiScale(imgBox, 1.2, 10);
+
+                if (imgBox.Height != 200 || imgBox.Width != 200)
+                    imgBox = imgBox.Resize(200, 200, Emgu.CV.CvEnum.Inter.Cubic);
+
+
+                var res = model.Predict(imgBox);
+
+                EMGUFace face = new EMGUFace();
+                face.x= r.X;
+                face.y = r.Y;
+                face.width = r.Width;
+                face.height=r.Height;
+                face.gender = (res.Label == 0) ? Gender.Male : Gender.Female;
+                face.confidence = res.Distance;
+
+                foreach (var eye in eyes)
+                    face.eyes.Add(new System.Windows.Point(eye.X + eye.Width / 2, eye.Y + eye.Height / 2));
+
+                faces.Add(face);
+            }
+            return faces;
         }
 
 
-        public EmguFaceDetector(String preloadedTraining="")
+        public EmguFaceDetector(String preloadedTraining = "")
         {
-            
+
 
             model = new FisherFaceRecognizer(2, 3000);
 
@@ -80,24 +104,26 @@ namespace FaceRecognitionEMGU
             }
             else
             {
-                if (preloadedTraining=="Default")
+                if (preloadedTraining == "Default")
                     model.Load(preloadedTraining);
                 else
                     model.Load(preloadedTraining);
             }
 
-            cascade = new CascadeClassifier(AppDomain.CurrentDomain.BaseDirectory + "haarcascades\\haarcascade_frontalface_default.xml");
 
-       
+            cascadeFace = new CascadeClassifier(AppDomain.CurrentDomain.BaseDirectory + "haarcascades\\haarcascade_frontalface_default.xml");
+            cascadeEyes = new CascadeClassifier(AppDomain.CurrentDomain.BaseDirectory + "haarcascades\\haarcascade_eye.xml");
+
+
         }
 
 
 
         private void prepareTrainingData()
         {
-           
-           string file = AppDomain.CurrentDomain.BaseDirectory + CROPPED_IMAGE_DIR + "\\" + CROPPED_IMAGE_FILE;
-           
+
+            string file = AppDomain.CurrentDomain.BaseDirectory + CROPPED_IMAGE_DIR + "\\" + CROPPED_IMAGE_FILE;
+
             if (!File.Exists(file))
             {
                 string errMsg = "No valid input file was given, please check the given filename.";
@@ -120,7 +146,7 @@ namespace FaceRecognitionEMGU
 
                         if (path != null && label != null)
                         {
-                            
+
                             path = AppDomain.CurrentDomain.BaseDirectory + CROPPED_IMAGE_DIR + "\\" + path + ".jpg";
 
                             if (File.Exists(path))

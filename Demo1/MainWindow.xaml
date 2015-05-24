@@ -29,6 +29,9 @@
         <ScrollViewer Grid.Row="2" Grid.Column="0" Margin="5" HorizontalScrollBarVisibility="Disabled">
             <TextBlock TextWrapping="Wrap" Text="{Binding EmguResult}"/>
         </ScrollViewer>
+        <Border Grid.Row="4"  Grid.Column="0" Margin="5" BorderBrush="#FF017D00" BorderThickness="3" >
+            <Image Source="{Binding EMGUImageResult}" Stretch="Uniform"/>
+        </Border>
 
         <ScrollViewer Grid.Row="2" Grid.Column="1" Margin="5" HorizontalScrollBarVisibility="Disabled">
             <TextBlock TextWrapping="Wrap" Text="{Binding BetafaceResult}"/>
