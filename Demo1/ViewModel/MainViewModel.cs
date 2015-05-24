@@ -14,6 +14,7 @@ using FaceRecognitionEMGU;
 using System.Xml;
 using System.Text;
 using FaceRecognitionBetaface;
+using System.Collections.Generic;
 using System.Windows.Threading;
 
 namespace Demo1.ViewModel
@@ -77,10 +78,54 @@ namespace Demo1.ViewModel
 
         EmguFaceDetector emguDetector;
 
-        internal async void Emgu()
+        public const string EMGUImageResultPropertyName = "EMGUImageResult";
+        private BitmapSource _emguImageResult = null;
+        public BitmapSource EMGUImageResult
         {
-            EmguFaceDetector emguDetector = new EmguFaceDetector(); 
-            emguDetector.detect(new Bitmap(ImageSourcePath));
+            get { return _emguImageResult; }
+            set
+            {
+                if (_emguImageResult == value)
+                { return; }
+                _emguImageResult = value;
+                RaisePropertyChanged(EMGUImageResultPropertyName);
+            }
+        }
+
+        public async void Emgu()
+        {
+            StringBuilder sb = new StringBuilder();
+            EmguResult = "Training";
+
+            EmguFaceDetector emguDetector = new EmguFaceDetector("Default");
+
+            EmguResult = "Detecting";
+            Bitmap res = new Bitmap(ImageSourcePath);  
+
+
+            List<EMGUFace> faces = await emguDetector.detect(res);
+
+             foreach (var item in faces)
+             {
+                 res = InsertShape(res, "rectangle",
+                        item.x, item.y,
+                        (int)item.width, (int)item.height,
+                        "Red", 4f);
+
+                 foreach (var eye in item.eyes)
+        {
+                     res = InsertShape(res, "filledellipse",
+                            item.x + (int)eye.X, item.y + (int)eye.Y,
+                            5, 5,
+                            "Red", 4f);
+                 }
+
+
+                 sb.AppendLine(item.ToString());
+
+             }
+             EMGUImageResult = ConvertBitmap(res);
+             EmguResult = sb.ToString();
         }
 
 
@@ -141,7 +186,7 @@ namespace Demo1.ViewModel
                     res = InsertShape(res, "rectangle",
                         item.FaceRectangle.Top, item.FaceRectangle.Left,
                         item.FaceRectangle.Width, item.FaceRectangle.Height,
-                        "Red");
+                        "Red", 4f);
 
                 }
             }
@@ -292,7 +337,7 @@ namespace Demo1.ViewModel
 
                             var temp = ConvertBitmap(betafaceBitmapResult);
                             temp.Freeze();
-
+                            
                             Application.Current.Dispatcher.Invoke(new Action(() => { BetafaceImageResult = temp; }));
                         }
                         else
@@ -324,7 +369,6 @@ namespace Demo1.ViewModel
 
         internal void Initialize()
         {
-            EmguFaceDetector emguDetector = new EmguFaceDetector(); 
 
         }
 
@@ -355,7 +399,7 @@ namespace Demo1.ViewModel
 
 
 
-        public Bitmap InsertShape(Bitmap image, string shapeType, int xPosition, int yPosition, int width, int height, string colorName)
+        public Bitmap InsertShape(Bitmap image, string shapeType, int xPosition, int yPosition, int width, int height, string colorName, float thickness)
         {
           
             Bitmap bmap = (Bitmap)image.Clone();
@@ -364,7 +408,7 @@ namespace Demo1.ViewModel
 
             if (string.IsNullOrEmpty(colorName))
                 colorName = "Black";
-            System.Drawing.Pen pen = new System.Drawing.Pen(System.Drawing.Color.FromName(colorName));
+            System.Drawing.Pen pen = new System.Drawing.Pen(System.Drawing.Color.FromName(colorName), thickness);
             switch (shapeType.ToLower())
             {
                 case "filledellipse":
