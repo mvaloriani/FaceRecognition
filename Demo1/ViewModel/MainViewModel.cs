@@ -107,16 +107,22 @@ namespace Demo1.ViewModel
 
              foreach (var item in faces)
              {
-                 res = InsertShape(res, "rectangle",
+                 if(item.gender == Gender.Female)
+                    res = InsertShape(res, "rectangle",
                         item.x, item.y,
                         (int)item.width, (int)item.height,
-                        "Red", 4f);
+                        "Purple", 4f);
+                 else if (item.gender == Gender.Male)
+                     res = InsertShape(res, "rectangle",
+                        item.x, item.y,
+                        (int)item.width, (int)item.height,
+                        "Cyan", 4f);
 
                  foreach (var eye in item.eyes)
         {
                      res = InsertShape(res, "filledellipse",
                             item.x + (int)eye.X, item.y + (int)eye.Y,
-                            5, 5,
+                            10, 10,
                             "Red", 4f);
                  }
 
@@ -170,6 +176,7 @@ namespace Demo1.ViewModel
 
         internal async void Oxford()
         {
+            StringBuilder builder = new StringBuilder();
 
             OxfordResult = "Detecting...";
 
@@ -183,54 +190,60 @@ namespace Demo1.ViewModel
 
                 foreach (var item in face)
                 {
-                    res = InsertShape(res, "rectangle",
-                        item.FaceRectangle.Top, item.FaceRectangle.Left,
-                        item.FaceRectangle.Width, item.FaceRectangle.Height,
-                        "Red", 4f);
+                    if(item.Attributes.Gender.Equals("female"))
+                        res = InsertShape(res, "rectangle",
+                            item.FaceRectangle.Left, item.FaceRectangle.Top,
+                            item.FaceRectangle.Width, item.FaceRectangle.Height,
+                            "Purple", 4f);
+                    else
+                        res = InsertShape(res, "rectangle",
+                            item.FaceRectangle.Left, item.FaceRectangle.Top,
+                            item.FaceRectangle.Width, item.FaceRectangle.Height,
+                            "Cyan", 4f);
+
+                    res = InsertShape(res, "filledellipse",
+                            (int)item.FaceLandmarks.EyeLeftInner.X,
+                            (int)item.FaceLandmarks.EyeLeftInner.Y, 
+                            10, 10,
+                            "Red", 4f);
+
+                    res = InsertShape(res, "filledellipse",
+                            (int)item.FaceLandmarks.EyeRightInner.X,
+                            (int)item.FaceLandmarks.EyeRightInner.Y,
+                            10, 10,
+                            "Red", 4f);
+
+                    res = InsertShape(res, "filledellipse",
+                            (int)item.FaceLandmarks.NoseTip.X,
+                            (int)item.FaceLandmarks.NoseTip.Y,
+                            10, 10,
+                            "Red", 4f);
+
+                    res = InsertShape(res, "filledellipse",
+                            (int)item.FaceLandmarks.MouthLeft.X,
+                            (int)item.FaceLandmarks.MouthLeft.Y,
+                            10, 10,
+                            "Red", 4f);
+
+                    res = InsertShape(res, "filledellipse",
+                            (int)item.FaceLandmarks.MouthRight.X,
+                            (int)item.FaceLandmarks.MouthRight.Y,
+                            10, 10,
+                            "Red", 4f);
+                          
+                    builder.Append("X = " +item.FaceRectangle.Left + ";");
+                    builder.Append("Y = " +item.FaceRectangle.Top + ";");
+                    builder.Append("Width = " +item.FaceRectangle.Width + ";");
+                    builder.Append("Height = " +item.FaceRectangle.Height + ";");
+                    builder.Append("Gender = " +item.Attributes.Gender + ";");
+                    builder.AppendLine("Age = " +item.Attributes.Age + ";");
+
+                    OxfordResult = builder.ToString();
 
                 }
             }
 
             OxfordImageResult = ConvertBitmap(res);
-
-            //{
-            //    DrawingVisual visual = new DrawingVisual();
-            //    DrawingContext drawingContext = visual.RenderOpen();
-
-            //    drawingContext.DrawImage(bitmapSource,
-            //        new Rect(0, 0, bitmapSource.Width, bitmapSource.Height));
-
-            //    double dpi = bitmapSource.DpiX;
-            //    double resizeFactor = 96 / dpi;
-
-
-            //    foreach (var faceRect in faceRects)
-            //    {
-            //        drawingContext.DrawRectangle(
-            //            System.Windows.Media.Brushes.Transparent,
-            //            new Pen(Brushes.Red, 2),
-            //            new Rect(
-            //                faceRect.Left * resizeFactor,
-            //                faceRect.Top * resizeFactor,
-            //                faceRect.Width * resizeFactor,
-            //                faceRect.Height * resizeFactor
-            //                )
-            //        );
-            //    }
-
-            //    drawingContext.Close();
-
-            //    RenderTargetBitmap faceWithRectBitmap = new RenderTargetBitmap(
-            //        (int)(bitmapSource.PixelWidth * resizeFactor),
-            //        (int)(bitmapSource.PixelHeight * resizeFactor),
-            //        96,
-            //        96,
-            //        PixelFormats.Pbgra32);
-
-            //    faceWithRectBitmap.Render(visual);
-
-            //    OxfordImageResult.source = faceWithRectBitmap;
-            //}
         }
 
       
@@ -240,7 +253,7 @@ namespace Demo1.ViewModel
             {
                 using (Stream imageFileStream = File.OpenRead(imageFilePath))
                 {
-                    var faces = await faceServiceClient.DetectAsync(imageFileStream);
+                    var faces = await faceServiceClient.DetectAsync(imageFileStream, true, true, true, false);
 
                     return faces.ToArray();
                 }
@@ -264,6 +277,8 @@ namespace Demo1.ViewModel
         Bitmap betafaceBitmapResult;
 
         Task betafaceTask;
+
+        StringBuilder BetafaceBuilder;
 
         public const string BetafaceXMLResultPropertyName = "BetafaceXMLResult";
         private String _betafaceXMLResult;
@@ -296,6 +311,7 @@ namespace Demo1.ViewModel
 
         internal void Betaface()
         {
+            BetafaceBuilder = new StringBuilder();
             betafaceDetectorResult = null;
             betafaceBitmapResult = new Bitmap(ImageSourcePath);
 
@@ -321,19 +337,30 @@ namespace Demo1.ViewModel
                     {
                         if(betafaceDetectorResult != null)
                         {
-                            //write XML reponse
-                            BetafaceXMLResult = FormatXml(betafaceDetectorResult.BetafaceXMLResponse);
-
                             //Draw results on image
                             foreach (var face in betafaceDetectorResult.BetafaceObjectResponse.faces)
                             {
-                                betafaceBitmapResult = InsertShape(betafaceBitmapResult, "rectangle", (int)(face.x - (face.width / 2)), (int)(face.y - (face.height / 2)), (int)face.width, (int)face.height, "Red", 4f);
+                                if (face.tags.Any(x => x.value=="female"))
+                                    betafaceBitmapResult = InsertShape(betafaceBitmapResult, "rectangle", (int)(face.x - (face.width / 2)), (int)(face.y - (face.height / 2)), (int)face.width, (int)face.height, "Purple", 4f);
+                                else
+                                    betafaceBitmapResult = InsertShape(betafaceBitmapResult, "rectangle", (int)(face.x - (face.width / 2)), (int)(face.y - (face.height / 2)), (int)face.width, (int)face.height, "Cyan", 4f);
                                 betafaceBitmapResult = InsertShape(betafaceBitmapResult, "filledellipse", (int)(face.points.Where(x => x.name == "basic eye left").First().x), (int)(face.points.Where(x => x.name == "basic eye left").First().y), 10, 10, "Red", 4f);
                                 betafaceBitmapResult = InsertShape(betafaceBitmapResult, "filledellipse", (int)(face.points.Where(x => x.name == "basic eye right").First().x), (int)(face.points.Where(x => x.name == "basic eye right").First().y), 10, 10, "Red", 4f);
                                 betafaceBitmapResult = InsertShape(betafaceBitmapResult, "filledellipse", (int)(face.points.Where(x => x.name == "basic nose tip").First().x), (int)(face.points.Where(x => x.name == "basic nose tip").First().y), 10, 10, "Red", 4f);
                                 betafaceBitmapResult = InsertShape(betafaceBitmapResult, "filledellipse", (int)(face.points.Where(x => x.name == "basic mouth left").First().x), (int)(face.points.Where(x => x.name == "basic mouth left").First().y), 10, 10, "Red", 4f);
                                 betafaceBitmapResult = InsertShape(betafaceBitmapResult, "filledellipse", (int)(face.points.Where(x => x.name == "basic mouth right").First().x), (int)(face.points.Where(x => x.name == "basic mouth right").First().y), 10, 10, "Red", 4f);
+
+                                BetafaceBuilder.Append("X = " + face.x + "; ");
+                                BetafaceBuilder.Append("Y = " + face.y + "; ");
+                                BetafaceBuilder.Append("Width = " + face.width + "; ");
+                                BetafaceBuilder.Append("Height = " + face.height + "; ");
+                                BetafaceBuilder.Append("Gender = " + face.tags.Where(x => x.name == "gender").First().value + "; ");
+                                BetafaceBuilder.AppendLine("Age = " + face.tags.Where(x => x.name == "age").First().value + ";");
                             }
+
+                            //write XML reponse
+                            BetafaceXMLResult = BetafaceBuilder.ToString() + "\n";
+                            BetafaceXMLResult += FormatXml(betafaceDetectorResult.BetafaceXMLResponse);
 
                             var temp = ConvertBitmap(betafaceBitmapResult);
                             temp.Freeze();
