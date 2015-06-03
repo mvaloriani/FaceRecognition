@@ -90,8 +90,9 @@ namespace FaceRecognitionEMGU
 
         public EmguFaceDetector(String preloadedTraining = "")
         {
-
-
+           // model = new LBPHFaceRecognizer();
+           // model = new EigenFaceRecognizer();
+           
             model = new FisherFaceRecognizer(2, 3000);
 
             if (preloadedTraining == "")
